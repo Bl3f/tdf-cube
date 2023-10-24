@@ -17,16 +17,19 @@ cubes:
         type: string
         title: id
         primary_key: true
+        description: A primary key that is the concatenation of the rider_slug and the stage.
 
       - name: rider
         sql: rider_slug
         type: string
         title: rider
+        description: The Strava profile id.
 
       - name: stage
         sql: stage_id
         type: string
         title: stage
+        description: "The Tour stage id, from 01 to 21. Be careful the format of the stage id is left padded with a 0. It means for stage 1, it's 01. For stage 2 it's 02, etc. The operation to do it in SQL is: LPAD(column_name, 2, '0')."
 
     measures:
       - name: count
@@ -36,6 +39,7 @@ cubes:
         sql: duration
         type: avg
         title: duration
+        description: Time in seconds (s) the rider took to complete the stage from the start line to the finish line. When displaying this column it's between to convert the seconds (s) to h:m:s.
 
     pre_aggregations:
       # Pre-aggregation definitions go here.

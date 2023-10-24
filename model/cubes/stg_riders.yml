@@ -10,31 +10,37 @@ cubes:
         type: string
         title: slug
         primary_key: true
+        description: Slug of the rider, when 'strava' column is not null it contains it, when null it's the official Tour data slug.
 
       - name: name
         sql: name
         type: string
         title: name
+        description: Name of the rider, with first and lastname (format "First Lastname").
 
       - name: bib
         sql: bib
         type: number
         title: bib
+        description: bib number, each number is unique.
 
       - name: team
         sql: team
         type: string
         title: team
+        description: Slug of the team name.
 
       - name: country
         sql: country
         type: string
         title: country
+        description: ISO-3 of the country (for instance 'fra' means France). The field values are lowercase.
 
       - name: strava
         sql: strava
         type: string
         title: strava
+        description: Strava profile id. If null it means the users was not on Strava.
 
       - name: birthday
         sql: birthday
@@ -47,13 +53,15 @@ cubes:
 
       - name: height
         sql: height
-        type: number
+        type: avg
         title: height
+        description: Height in cm for procyclingstats. Unit is cm, 100cm = 1m.
 
       - name: weight
         sql: weight
-        type: number
+        type: avg
         title: weight
+        description: Weight in kgs for procyclingstats. Unit is kgs, which means kilograms, 1000g = 1kg.
 
     pre_aggregations:
       # Pre-aggregation definitions go here.
