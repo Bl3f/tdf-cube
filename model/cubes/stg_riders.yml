@@ -46,11 +46,9 @@ cubes:
         sql: birthday
         type: string
         title: birthday
+        description: The birthday of the rider. The date format have to be parse in a proper date format.
 
     measures:
-      - name: count
-        type: count
-
       - name: height
         sql: height
         type: avg
