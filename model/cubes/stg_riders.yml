@@ -1,0 +1,61 @@
+cubes:
+  - name: stg_riders
+    sql_table: letour.stg_riders
+
+    joins: []
+
+    dimensions:
+      - name: slug
+        sql: slug
+        type: string
+        title: slug
+        primary_key: true
+
+      - name: name
+        sql: name
+        type: string
+        title: name
+
+      - name: bib
+        sql: bib
+        type: number
+        title: bib
+
+      - name: team
+        sql: team
+        type: string
+        title: team
+
+      - name: country
+        sql: country
+        type: string
+        title: country
+
+      - name: strava
+        sql: strava
+        type: string
+        title: strava
+
+      - name: birthday
+        sql: birthday
+        type: string
+        title: birthday
+
+    measures:
+      - name: count
+        type: count
+
+      - name: height
+        sql: height
+        type: avg
+        title: height
+
+      - name: weight
+        sql: weight
+        type: avg
+        title: weight
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

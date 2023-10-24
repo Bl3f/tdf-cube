@@ -1,0 +1,43 @@
+cubes:
+  - name: stages_duration_per_rider
+    sql_table: letour.stages_duration_per_rider
+
+    joins:
+      - name: stg_stages_info
+        sql: "{CUBE}.stage_id = {stg_stages_info}.stage"
+        relationship: many_to_one
+
+      - name: stg_riders
+        sql: "{CUBE}.rider_slug = {stg_riders}.slug"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: string
+        title: id
+        primary_key: true
+
+      - name: rider
+        sql: rider_slug
+        type: string
+        title: rider
+
+      - name: stage
+        sql: stage_id
+        type: string
+        title: stage
+
+    measures:
+      - name: count
+        type: count
+
+      - name: duration
+        sql: duration
+        type: avg
+        title: duration
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+
