@@ -47,12 +47,12 @@ cubes:
 
       - name: height
         sql: height
-        type: avg
+        type: number
         title: height
 
       - name: weight
         sql: weight
-        type: avg
+        type: number
         title: weight
 
     pre_aggregations:
