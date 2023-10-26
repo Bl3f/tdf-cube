@@ -4,7 +4,7 @@ cubes:
 
     joins:
       - name: stages_metrics
-        sql: "{CUBE}.stage_id = {stg_stages_info}.stage"
+        sql: "{CUBE}.stage_id = {stages_metrics}.stage"
         relationship: many_to_one
 
       - name: stg_riders
