@@ -40,6 +40,12 @@ cubes:
         title: distance
         description: Distance in meters (m). Can be converted in kilometers if you divide the number per 1000.
 
+      - name: path
+        sql: path
+        type: string
+        title: path
+        description: The GPS line path.
+
     pre_aggregations:
       # Pre-aggregation definitions go here.
       # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started

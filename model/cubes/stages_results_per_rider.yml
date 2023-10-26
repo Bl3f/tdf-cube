@@ -65,6 +65,12 @@ cubes:
         title: speed
         description: Speed in m/s (meters/seconds). In order to get the speed in km/h (kilometers/hours) you have to multiply by 3.6.
 
+      - name: line
+        sql: line
+        type: string
+        title: line
+        description: The GPS line path (with a sample /3).
+
     pre_aggregations:
       # Pre-aggregation definitions go here.
       # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
