@@ -1,0 +1,46 @@
+cubes:
+  - name: stages_metrics
+    sql_table: letour.stages_metrics
+
+    joins: []
+
+    dimensions:
+      - name: stage
+        sql: stage
+        type: string
+        title: stage
+        primary_key: true
+        description: "The Tour stage id, from 01 to 21. Be careful the format of the stage id is left padded with a 0. It means for stage 1, it's 01. For stage 2 it's 02, etc. The operation to do it in SQL is: LPAD(column_name, 2, '0')."
+
+      - name: date
+        sql: date
+        type: time
+        title: date
+        description: Date of the stage to take place.
+
+      - name: start
+        sql: start_label
+        type: string
+        title: start
+        description: Label / name of the starting localisation of the stage (it's probably a city).
+
+      - name: end
+        sql: end_label
+        type: string
+        title: end
+        description: Label / name of the ending localisation of the stage (it's probably a city).
+
+    measures:
+      - name: count
+        type: count
+
+      - name: distance
+        sql: distance
+        type: number
+        title: distance
+        description: Distance in meters (m). Can be converted in kilometers if you divide the number per 1000.
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

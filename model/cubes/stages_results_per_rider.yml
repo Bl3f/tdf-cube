@@ -1,9 +1,9 @@
 cubes:
-  - name: stages_duration_per_rider
-    sql_table: letour.stages_duration_per_rider
+  - name: stages_results_per_rider
+    sql_table: letour.stages_results_per_rider
 
     joins:
-      - name: stg_stages_info
+      - name: stages_metrics
         sql: "{CUBE}.stage_id = {stg_stages_info}.stage"
         relationship: many_to_one
 
@@ -39,7 +39,31 @@ cubes:
         sql: duration
         type: avg
         title: duration
-        description: Time in seconds (s) the rider took to complete the stage from the start line to the finish line. When displaying this column it's between to convert the seconds (s) to h:m:s.
+        description: Time in seconds (s) the rider took to complete the stage from the start line to the finish line. When displaying convert it from seconds (s) to h:m:s.
+
+      - name: min_heartrate
+        sql: min_heartrate
+        type: avg
+        title: min_heartrate
+        description: Minimum heart rate for this stage and rider.
+
+      - name: max_heartrate
+        sql: max_heartrate
+        type: min
+        title: max_heartrate
+        description: Maximal heart rate for this stage and rider.
+
+      - name: avg_heartrate
+        sql: avg_heartrate
+        type: avg
+        title: avg_heartrate
+        description: Average heart rate for this stage and rider.
+
+      - name: speed
+        sql: speed
+        type: avg
+        title: speed
+        description: Speed in m/s (meters/seconds). In order to get the speed in km/h (kilometers/hours) you have to multiply by 3.6.
 
     pre_aggregations:
       # Pre-aggregation definitions go here.
